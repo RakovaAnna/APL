@@ -2,6 +2,9 @@ import pymorphy2
 
 
 # Считывание текста
+from nltk.corpus import stopwords
+
+
 def read_text():
     try:
         f = open("input.txt", "r")
@@ -34,3 +37,13 @@ def normalize_words(words):
             normal = morph.parse(words[i])[0]
             text = text + ' ' + normal.normal_form
     return text
+
+
+# Удаляем стоп-слова.
+def del_stop(words, result_tf):
+    russian_stop = set(stopwords.words('russian'))
+    res = {}
+    for word in words:
+        if word not in russian_stop:
+            res[word] = result_tf[word]
+    return res
