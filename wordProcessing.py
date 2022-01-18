@@ -1,15 +1,16 @@
 import pymorphy2
+from consts import *
 
 
 # Считывание текста
 from nltk.corpus import stopwords
 
 
-def read_text():
+def read_text(name):
     try:
-        f = open("input.txt", "r")
-        text = f.read()
-        f.close()
+        file = open(name, 'r')
+        text = file.read()
+        file.close()
     except FileNotFoundError:
         text = ''
     return text
@@ -18,10 +19,10 @@ def read_text():
 # Удаление пунктуации (кроме точек)
 def delete_punctuation(text):
     # Удаляем всю пунктуацию внутри предложений.
-    for char in ',', ';', ':', '—', ')', '(', '"', '-':
+    for char in punctuation_marks_all:
         text = text.replace(char, '')
     # Знаки, разделяющие текст по предложениям, заменяем на точки
-    for char in '.', '!', '?':
+    for char in punctuation_marks_sents:
         text = text.replace(char, ' . ')
     return text
 
@@ -40,7 +41,7 @@ def normalize_words(words):
 
 
 # Удаляем стоп-слова.
-def del_stop(words, result_tf):
+def delete_stop(words, result_tf):
     russian_stop = set(stopwords.words('russian'))
     res = {}
     for word in words:
