@@ -21,5 +21,8 @@ result_tf = TF(words)
 
 # Удаляем стоп-слова для TF
 result_tf = wordProcessing.del_stop(words, result_tf)
-print(normal_text)
+
+# Выделяем ключевые слова
+key_words = get_key_words(result_tf)
 print(result_tf)
+print(key_words)
