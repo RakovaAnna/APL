@@ -8,7 +8,7 @@ from nltk.corpus import stopwords
 
 def read_text(name):
     try:
-        file = open(name, 'r')
+        file = open(name, encoding="utf8")
         text = file.read()
         file.close()
     except FileNotFoundError:
@@ -26,7 +26,6 @@ def delete_punctuation(text):
         text = text.replace(char, ' . ')
     return text
 
-
 # Нормализация слов в текста
 def normalize_words(words):
     morph = pymorphy2.MorphAnalyzer()
@@ -38,7 +37,6 @@ def normalize_words(words):
             normal = morph.parse(words[i])[0]
             text = text + ' ' + normal.normal_form
     return text
-
 
 # Удаляем стоп-слова.
 def delete_stop(words, result_tf):
