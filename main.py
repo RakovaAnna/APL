@@ -1,16 +1,55 @@
-# This is a sample Python script.
+import pymorphy2
+import math
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+import nltk
+from nltk.corpus import stopwords
+
+russian_stop = set(stopwords.words('russian'))
+morph = pymorphy2.MorphAnalyzer()
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+# Считываем тексты из файла.
+def read_text():
+    try:
+        f = open("input.txt", "r")
+        text = f.read()
+        f.close()
+    except FileNotFoundError:
+        text = ''
+    return text
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+# Убираем лишнюю пунктуацию.
+def delete_punctuation(text):
+    # Удаляем всю пунктуацию внутри предложений.
+    for char in ',', ';', ':', '—', ')', '(', '"', '-':
+        text = text.replace(char, '')
+    # Знаки, разделяющие текст по предложениям, заменяем на точки
+    for char in '.', '!', '?':
+        text = text.replace(char, ' . ')
+    return text
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+
+# Нормализуем все слова в тексте, сохраняя разделение на предложения
+def normalize_words(words):
+    morph = pymorphy2.MorphAnalyzer()
+    text = ''
+    for i in range(len(words)):
+        if words[i] == '.':
+            text = text + ' ' + '.'
+        else:
+            normal = morph.parse(words[i])[0]
+            text = text + ' ' + normal.normal_form
+    return text
+
+
+# Считываем тексты и переводим все слова в нижний регистр.
+text = read_text()
+text = text.lower()
+# Убираем пунктуацию
+text = delete_punctuation(text)
+
+# Нормализовываем слова в тексте, сохраняя разделение на предложениия
+normal_text = normalize_words(text.split())
+
+print(normal_text)
