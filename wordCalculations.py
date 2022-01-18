@@ -3,7 +3,7 @@ import operator
 from collections import OrderedDict
 
 
-def TF(words):
+def get_tf(words):
     num_words = len(words)
     unique = set(words)
     frequencies = {}

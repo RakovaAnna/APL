@@ -1,26 +1,24 @@
-import wordProcessing
-
-
-# Считываем тексты и переводим все слова в нижний регистр.
+from wordProcessing import *
 from wordCalculations import *
 
-text = wordProcessing.read_text()
+# Считываем тексты и переводим все слова в нижний регистр
+text = read_text('input.txt')
 text = text.lower()
 # Убираем пунктуацию
-text = wordProcessing.delete_punctuation(text)
+text = delete_punctuation(text)
 
 # Нормализовываем слова в тексте, сохраняя разделение на предложения
-normal_text = wordProcessing.normalize_words(text.split())
+normal_text = normalize_words(text.split())
 
 # Разбиваем текст на отдельные слова и на отдельные предложения
 words = (normal_text.replace('.', '')).split()
 sentences = normal_text.split('. ')
 
 # Вычисляем TF для текстов
-result_tf = TF(words)
+result_tf = get_tf(words)
 
 # Удаляем стоп-слова для TF
-result_tf = wordProcessing.del_stop(words, result_tf)
+result_tf = delete_stop(words, result_tf)
 
 # Выделяем ключевые слова
 key_words = get_key_words(result_tf)
