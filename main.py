@@ -16,15 +16,15 @@ def sort_dicts(words1, words2):
     sorted_dict1 = dict(sorted_dict1)
     return sorted_dict1, dict(sorted_dict2)
 
-def leave_only_keywords(text, keywords):
-    tokens = get_lower_text_without_punctuation(text).split()
-    new_tokens = []
-    morph = pymorphy2.MorphAnalyzer()
-    for t in tokens:
-        normal = (morph.parse(t)[0]).normal_form
-        if normal in keywords.keys():
-            new_tokens.append(normal)
-    return new_tokens
+# def leave_only_keywords(text, keywords):
+#     tokens = get_lower_text_without_punctuation(text).split()
+#     new_tokens = []
+#     morph = pymorphy2.MorphAnalyzer()
+#     for t in tokens:
+#         normal = (morph.parse(t)[0]).normal_form
+#         if normal in keywords.keys():
+#             new_tokens.append(normal)
+#     return new_tokens
 
 
 # review_text_KWs = find_key_words(review_text_name)
@@ -78,8 +78,23 @@ def leave_only_keywords(text, keywords):
 # строим график
 # если графики похожи то и тексты похожи
 
+
+# Для слов
 review_text_KWs = find_key_words(review_text_name)
-target_text_KWs = find_key_words(other_text_names_list[0])
+target_text_KWs = find_key_words(other_text_names_list[1])
+
+# Для словосочетаний
+# key_words_1 = find_key_words(review_text_name)
+# key_words_2 = find_key_words(other_text_names_list[1])
+#
+# _review_text_KWs = get_tf(get_word_combinations(list(key_words_1.keys())))
+# _target_text_KWs = get_tf(get_word_combinations(list(key_words_2.keys())))
+#
+# review_text_KWs = get_key_words(_review_text_KWs)
+# target_text_KWs = get_key_words(_target_text_KWs)
+
+
+
 bigger = review_text_KWs if len(review_text_KWs) > len(target_text_KWs) else target_text_KWs
 smaller = target_text_KWs if len(review_text_KWs) > len(target_text_KWs) else review_text_KWs
 
