@@ -1,3 +1,6 @@
+from numpy import dot
+from numpy.linalg import norm
+
 def read_text(file_name):
     try:
         f = open(file_name, "r")
@@ -34,3 +37,9 @@ def determine_similarity_by_2way(set1, set2):
         if key in set2:
             summa=summa+set1[key]*set2[key]
     return summa
+
+#косинусное сходство
+def determine_similarity_by_2way_simple(set1, set2):
+    set1 = list(set1.values())
+    set2 = list(set2.values())
+    return dot(set1, set2)/(norm(set1)*norm(set2))

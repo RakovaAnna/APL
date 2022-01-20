@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5fa51cf9-b4be-475e-b306-bd02a8cae9f4" name="Changes" comment="переделка структуры программы + нахожденик ключевых слов для всех текстов + вывод графиков частот словосочетаний и прочего">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-    </list>
+    <list default="true" id="5fa51cf9-b4be-475e-b306-bd02a8cae9f4" name="Changes" comment="сильно упростил код + вывод схожести текстов" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -40,7 +37,6 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="restartRequiresConfirmation" value="false" />
   </component>
   <component name="RunManager">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
@@ -81,7 +77,21 @@
       <option name="project" value="LOCAL" />
       <updated>1642547361397</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="переделка структуры программы + нахожденик ключевых слов для всех текстов + вывод графиков частот словосочетаний и прочего">
+      <created>1642547735858</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1642547735858</updated>
+    </task>
+    <task id="LOCAL-00003" summary="сильно упростил код + вывод схожести текстов">
+      <created>1642703472593</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1642703472593</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -94,19 +104,18 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="переделка структуры программы + нахожденик ключевых слов для всех текстов + вывод графиков частот словосочетаний и прочего" />
-    <option name="LAST_COMMIT_MESSAGE" value="переделка структуры программы + нахожденик ключевых слов для всех текстов + вывод графиков частот словосочетаний и прочего" />
+    <MESSAGE value="сильно упростил код + вывод схожести текстов" />
+    <option name="LAST_COMMIT_MESSAGE" value="сильно упростил код + вывод схожести текстов" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/wordCalculations.py</url>
-          <line>1</line>
-          <option name="timeStamp" value="2" />
+          <url>file://$PROJECT_DIR$/searchForKeyWords.py</url>
+          <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
